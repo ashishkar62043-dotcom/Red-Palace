@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Palace | Royal Multi-Cuisine Restaurant & Banquet</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cinzel Decorative, Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        maroon: {
+                            950: '#1A0306',
+                            900: '#2B0409',
+                            800: '#4A0A12',
+                            700: '#5C101B',
+                            600: '#781725',
+                        },
+                        gold: {
+                            200: '#F3E5AB',
+                            300: '#F5E096',
+                            400: '#E5C358',
+                            500: '#D4AF37',
+                            600: '#B08D22',
+                            700: '#856812',
+                        }
+                    },
+                    fontFamily: {
+                        royal: ['"Cinzel Decorative"', 'serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Royal Scrollbar & Ornamental Styling */
+        body {
+            background-color: #1A0306;
+            color: #FBF6EA;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(120, 23, 37, 0.35) 0%, transparent 65%),
+                radial-gradient(circle at 100% 100%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F5E096 0%, #D4AF37 50%, #B08D22 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #E5C358 0%, #D4AF37 55%, #B08D22 100%);
+        }
+
+        .royal-card {
+            background: linear-gradient(160deg, rgba(66, 10, 18, 0.85) 0%, rgba(36, 5, 9, 0.95) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .royal-card:hover {
+            border-color: rgba(212, 175, 55, 0.65);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 34px -8px rgba(212, 175, 55, 0.14);
+        }
+
+        /* Hide scrollbars for horizontal category pills */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Ornamental corner borders matching the physical menu */
+        .ornament-frame {
+            position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+        }
+        .ornament-frame::before {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        @keyframes pulseGold {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.45); }
+            50% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+        }
+        .pulse-gold {
+            animation: pulseGold 2.5s infinite;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-gold-500 selection:text-maroon-950 pb-24 md:pb-0">
+
+    <!-- ==================== TOP NAVBAR ==================== -->
+    <header class="sticky top-0 z-40 bg-maroon-950/90 backdrop-blur-md border-b border-gold-500/25">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            <!-- Brand Crest & Name -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full gold-gradient-bg p-0.5 shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <div class="w-full h-full rounded-full bg-maroon-900 flex items-center justify-center border border-gold-300/60">
+                        <!-- Custom Royal Crest SVG -->
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7 text-gold-400" viewBox="0 0 64 64" fill="none">
+                            <path d="M12 44L8 20L22 30L32 14L42 30L56 20L52 44H12Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round" fill="rgba(212,175,55,0.2)"/>
+                            <path d="M12 50H52" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="32" cy="10" r="2.5" fill="currentColor"/>
+                            <circle cx="8" cy="16" r="2" fill="currentColor"/>
+                            <circle cx="56" cy="16" r="2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="font-royal text-lg sm:text-2xl font-black tracking-wider gold-gradient-text leading-none">
+                        RED PALACE
+                    </h1>
+                    <p class="text-[10px] sm:text-xs text-gold-300/80 tracking-[0.2em] uppercase mt-0.5">
+                        Restaurant & Banquet
+                    </p>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-amber-100/90">
+                <a href="#menu-section" class="hover:text-gold-400 transition-colors">Royal Menu</a>
+                <a href="#reservation-section" class="hover:text-gold-400 transition-colors">Book Table & Banquet</a>
+                <a href="#specialties-section" class="hover:text-gold-400 transition-colors">Our Legacy</a>
+            </nav>
+
+            <!-- Action Controls -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Demo Pitch Config Button -->
+                <button onclick="openSettingsModal()" title="Customize Restaurant Demo Settings" class="p-2.5 rounded-xl bg-maroon-800/80 border border-gold-500/30 text-gold-400 hover:bg-maroon-700 transition-colors">
+                    <i data-lucide="sliders-horizontal" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                </button>
+
+                <!-- Cart Trigger Button -->
+                <button onclick="toggleCart(true)" class="relative flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl gold-gradient-bg text-maroon-950 font-bold text-sm shadow-lg hover:brightness-110 transition-all">
+                    <i data-lucide="shopping-bag" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                    <span class="hidden sm:inline">Your Order</span>
+                    <span id="nav-cart-badge" class="bg-maroon-950 text-gold-400 text-xs font-extrabold px-2 py-0.5 rounded-full">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 px-4 sm:px-6 lg:px-8 border-b border-gold-500/25">
+        <!-- Verified High-Res Luxury Indian Dining & Tandoori Background Image -->
+        <img 
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80" 
+            alt="Red Palace Luxury Dining & Tandoori Feast" 
+            onerror="handleImgError(this, 'Red Palace Royal Dining')"
+            class="absolute inset-0 w-full h-full object-cover object-center opacity-35 scale-105 pointer-events-none"
+        >
+        <!-- Royal Maroon Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-maroon-950/90 via-maroon-900/85 to-maroon-950 pointer-events-none"></div>
+
+        <!-- Decorative Corner SVG Flourishes (Inspired by Red Palace Menu Card) -->
+        <svg class="hidden lg:block absolute top-6 left-6 w-24 h-24 text-gold-500/35 pointer-events-none z-10" viewBox="0 0 100 100" fill="currentColor">
+            <path d="M5,5 L45,5 C25,10 10,25 5,45 Z M15,15 C30,15 35,30 15,35 C20,25 20,20 15,15 Z"/>
+        </svg>
+        <svg class="hidden lg:block absolute top-6 right-6 w-24 h-24 text-gold-500/35 pointer-events-none rotate-90 z-10" viewBox="0 0 100 100" fill="currentColor">
+            <path d="M5,5 L45,5 C25,10 10,25 5,45 Z M15,15 C30,15 35,30 15,35 C20,25 20,20 15,15 Z"/>
+        </svg>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <!-- Emblem Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-maroon-900/90 border border-gold-500/40 text-gold-200 text-xs sm:text-sm font-medium mb-6 shadow-md backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-gold-400 animate-ping"></span>
+                <span id="display-tagline">Authentic Tandoori • Indian Curries • Oriental Chinese • Mocktails</span>
+            </div>
+
+            <!-- Main Royal Heading -->
+            <h2 class="font-royal text-3xl sm:text-5xl md:text-6xl font-black tracking-wide gold-gradient-text drop-shadow-md leading-tight">
+                RED PALACE — FINE DINING & BANQUET HALL
+            </h2>
+
+            <!-- Ornamental Divider -->
+            <div class="flex items-center justify-center gap-3 my-5">
+                <span class="h-[1px] w-16 sm:w-28 bg-gradient-to-r from-transparent to-gold-500"></span>
+                <i data-lucide="crown" class="w-5 h-5 text-gold-400"></i>
+                <span class="h-[1px] w-16 sm:w-28 bg-gradient-to-l from-transparent to-gold-500"></span>
+            </div>
+
+            <p class="max-w-2xl mx-auto text-amber-100/90 text-sm sm:text-base md:text-lg leading-relaxed mb-8">
+                From smoky charcoal Tandoori platters and rich Mughlai handis to sizzling Indo-Chinese delicacies — order directly to your table or doorstep with zero commission.
+            </p>
+
+            <!-- Hero CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4">
+                <a href="#menu-section" class="w-full sm:w-auto px-7 py-3.5 rounded-xl gold-gradient-bg text-maroon-950 font-bold text-sm sm:text-base shadow-xl hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="utensils" class="w-5 h-5"></i>
+                    <span>Explore Full Menu (150+ Dishes)</span>
+                </a>
+                <a href="#reservation-section" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-maroon-800/90 border border-gold-500/50 text-gold-300 font-semibold text-sm sm:text-base hover:bg-maroon-700 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                    <span>Book Table / Banquet</span>
+                </a>
+                <button onclick="quickWhatsAppChat()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-700/90 border border-emerald-400/40 text-white font-semibold text-sm sm:text-base hover:bg-emerald-600 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    <span>WhatsApp Concierge</span>
+                </button>
+            </div>
+
+            <!-- Trust & Dining Highlights Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-12 text-left">
+                <div class="p-3.5 rounded-2xl bg-maroon-900/85 backdrop-blur-sm border border-gold-500/25 flex items-center gap-3">
+                    <div class="p-2.5 rounded-xl bg-gold-500/15 text-gold-400">
+                        <i data-lucide="flame" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs sm:text-sm font-bold text-amber-50">Live Clay Tandoor</p>
+                        <p class="text-[11px] text-amber-200/70">Freshly roasted kebabs</p>
+                    </div>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-maroon-900/85 backdrop-blur-sm border border-gold-500/25 flex items-center gap-3">
+                    <div class="p-2.5 rounded-xl bg-gold-500/15 text-gold-400">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs sm:text-sm font-bold text-amber-50">Family & Banquet</p>
+                        <p class="text-[11px] text-amber-200/70">Events up to 200 guests</p>
+                    </div>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-maroon-900/85 backdrop-blur-sm border border-gold-500/25 flex items-center gap-3">
+                    <div class="p-2.5 rounded-xl bg-gold-500/15 text-gold-400">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs sm:text-sm font-bold text-amber-50">Hygienic Kitchen</p>
+                        <p class="text-[11px] text-amber-200/70">Pure Veg & Non-Veg prep</p>
+                    </div>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-maroon-900/85 backdrop-blur-sm border border-gold-500/25 flex items-center gap-3">
+                    <div class="p-2.5 rounded-xl bg-gold-500/15 text-gold-400">
+                        <i data-lucide="bike" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs sm:text-sm font-bold text-amber-50">Express Delivery</p>
+                        <p class="text-[11px] text-amber-200/70">Hot & spill-proof packing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ROYAL FEAST GALLERY SHOWCASE STRIP ==================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2">
+            <div>
+                <span class="text-xs uppercase tracking-[0.25em] text-gold-400 font-semibold">Visual Experience</span>
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-amber-50 mt-0.5">Royal Feast Gallery</h3>
+            </div>
+            <p class="text-xs text-amber-200/70">Tap any specialty to jump straight to that category</p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4">
+            <!-- Card 1: Tandoori Platters -->
+            <div onclick="setCategory('Tandoori Non-Veg. Starter'); document.getElementById('menu-section').scrollIntoView({behavior:'smooth'})" class="group relative h-44 sm:h-52 rounded-2xl overflow-hidden border border-gold-500/35 cursor-pointer shadow-lg">
+                <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80" alt="Tandoori Platters" onerror="handleImgError(this, 'Tandoori Platters')" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-maroon-950 via-maroon-950/30 to-transparent"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                    <span class="text-[10px] uppercase tracking-wider text-gold-400 font-bold block">Charcoal Grill</span>
+                    <h4 class="font-serif text-sm sm:text-base font-bold text-amber-50">Tandoori Platters</h4>
+                </div>
+            </div>
+
+            <!-- Card 2: Royal Curries -->
+            <div onclick="setCategory('Indian Main Course Curries'); document.getElementById('menu-section').scrollIntoView({behavior:'smooth'})" class="group relative h-44 sm:h-52 rounded-2xl overflow-hidden border border-gold-500/35 cursor-pointer shadow-lg">
+                <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80" alt="Paneer & Butter Chicken Curries" onerror="handleImgError(this, 'Royal Curries')" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-maroon-950 via-maroon-950/30 to-transparent"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                    <span class="text-[10px] uppercase tracking-wider text-gold-400 font-bold block">Signature Handi</span>
+                    <h4 class="font-serif text-sm sm:text-base font-bold text-amber-50">Paneer & Butter Chicken</h4>
+                </div>
+            </div>
+
+            <!-- Card 3: Pulao & Biryani Rice -->
+            <div onclick="setCategory('Rice'); document.getElementById('menu-section').scrollIntoView({behavior:'smooth'})" class="group relative h-44 sm:h-52 rounded-2xl overflow-hidden border border-gold-500/35 cursor-pointer shadow-lg">
+                <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80" alt="Aromatic Rice & Pulao" onerror="handleImgError(this, 'Rice & Pulao')" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-maroon-950 via-maroon-950/30 to-transparent"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                    <span class="text-[10px] uppercase tracking-wider text-gold-400 font-bold block">Basmati Aroma</span>
+                    <h4 class="font-serif text-sm sm:text-base font-bold text-amber-50">Royal Rice & Pulao</h4>
+                </div>
+            </div>
+
+            <!-- Card 4: Chilled Mocktails -->
+            <div onclick="setCategory('Beverage'); document.getElementById('menu-section').scrollIntoView({behavior:'smooth'})" class="group relative h-44 sm:h-52 rounded-2xl overflow-hidden border border-gold-500/35 cursor-pointer shadow-lg">
+                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80" alt="Refreshing Mocktails" onerror="handleImgError(this, 'Mocktails')" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-maroon-950 via-maroon-950/30 to-transparent"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                    <span class="text-[10px] uppercase tracking-wider text-gold-400 font-bold block">Chilled Bar</span>
+                    <h4 class="font-serif text-sm sm:text-base font-bold text-amber-50">Mocktails & Shakes</h4>
+                </div>
+            </div>
+
+            <!-- Card 5: Grand Banquet Hall -->
+            <div onclick="document.getElementById('reservation-section').scrollIntoView({behavior:'smooth'})" class="col-span-2 sm:col-span-1 group relative h-44 sm:h-52 rounded-2xl overflow-hidden border border-gold-500/35 cursor-pointer shadow-lg">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80" alt="Red Palace Banquet Hall" onerror="handleImgError(this, 'Banquet Hall')" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-maroon-950 via-maroon-950/30 to-transparent"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                    <span class="text-[10px] uppercase tracking-wider text-gold-400 font-bold block">Celebrations</span>
+                    <h4 class="font-serif text-sm sm:text-base font-bold text-amber-50">Grand Banquet Hall</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE MENU SECTION ==================== -->
+    <main id="menu-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        
+        <!-- Section Title -->
+        <div class="text-center mb-8">
+            <span class="text-xs uppercase tracking-[0.25em] text-gold-400 font-semibold">Curated Royal Feast</span>
+            <h3 class="font-serif text-2xl sm:text-4xl font-bold text-amber-50 mt-1">Red Palace Digital Menu</h3>
+        </div>
+
+        <!-- Sticky Search & Diet Filter Control Bar -->
+        <div class="sticky top-16 sm:top-20 z-30 bg-maroon-950/95 backdrop-blur-md py-3.5 border-y border-gold-500/20 mb-6 -mx-4 px-4 sm:mx-0 sm:px-4 sm:rounded-2xl sm:border">
+            <div class="flex flex-col md:flex-row gap-3 justify-between items-stretch md:items-center">
+                
+                <!-- Search Input -->
+                <div class="relative flex-1">
+                    <i data-lucide="search" class="w-4 h-4 text-gold-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                    <input 
+                        type="text" 
+                        id="menu-search" 
+                        placeholder="Search Paneer Tikka, Butter Chicken, Naan, Mojito..." 
+                        oninput="handleSearch(this.value)"
+                        class="w-full pl-10 pr-9 py-2.5 rounded-xl bg-maroon-900/90 border border-gold-500/30 text-sm text-amber-50 placeholder-amber-200/40 focus:outline-none focus:border-gold-400"
+                    >
+                    <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-amber-200/60 hover:text-gold-400">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Diet Toggle Filters (All / Pure Veg / Non-Veg) -->
+                <div class="flex items-center gap-2 bg-maroon-900/90 p-1 rounded-xl border border-gold-500/25 self-start md:self-auto">
+                    <button onclick="setDietFilter('all')" id="filter-all" class="diet-btn px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all gold-gradient-bg text-maroon-950">
+                        All Items
+                    </button>
+                    <button onclick="setDietFilter('veg')" id="filter-veg" class="diet-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold text-amber-100/80 hover:text-white flex items-center gap-1.5 transition-all">
+                        <span class="w-3.5 h-3.5 border border-emerald-500 rounded-sm flex items-center justify-center bg-white">
+                            <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+                        </span>
+                        Veg Only
+                    </button>
+                    <button onclick="setDietFilter('nonveg')" id="filter-nonveg" class="diet-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold text-amber-100/80 hover:text-white flex items-center gap-1.5 transition-all">
+                        <span class="w-3.5 h-3.5 border border-red-600 rounded-sm flex items-center justify-center bg-white">
+                            <span class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-b-[7px] border-b-red-600"></span>
+                        </span>
+                        Non-Veg
+                    </button>
+                </div>
+            </div>
+
+            <!-- Horizontal Scrollable Category Pills -->
+            <div id="category-tabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar pt-3 mt-3 border-t border-gold-500/15">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+
+        <!-- Menu Results Summary -->
+        <div class="flex items-center justify-between mb-5 text-xs sm:text-sm text-amber-200/70">
+            <p id="menu-count-label">Showing all royal delicacies</p>
+            <button onclick="resetAllFilters()" id="reset-filters-btn" class="hidden text-gold-400 underline hover:text-gold-300">Reset Filters</button>
+        </div>
+
+        <!-- Menu Grid Container -->
+        <div id="menu-container" class="space-y-10">
+            <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Empty Search State -->
+        <div id="empty-state" class="hidden text-center py-16 px-4 royal-card rounded-3xl">
+            <i data-lucide="search-x" class="w-12 h-12 text-gold-400 mx-auto mb-3 opacity-80"></i>
+            <h4 class="font-serif text-xl font-bold text-amber-50">No matching dishes found</h4>
+            <p class="text-sm text-amber-200/70 mt-1 max-w-md mx-auto">Try searching with another dish name or switch back to "All Items".</p>
+            <button onclick="resetAllFilters()" class="mt-5 px-5 py-2.5 rounded-xl gold-gradient-bg text-maroon-950 font-bold text-sm">
+                Show Full Menu
+            </button>
+        </div>
+    </main>
+
+    <!-- ==================== TABLE & BANQUET RESERVATION SECTION ==================== -->
+    <section id="reservation-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div class="royal-card ornament-frame rounded-3xl p-6 sm:p-10 lg:p-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Left Info Column -->
+                <div class="lg:col-span-5 space-y-5">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-gold-500/15 border border-gold-500/30 text-gold-400 text-xs font-bold tracking-wider uppercase">
+                        VIP Hospitality
+                    </span>
+                    <h3 class="font-royal text-2xl sm:text-4xl font-bold gold-gradient-text leading-snug">
+                        RESERVE A ROYAL TABLE OR BANQUET HALL
+                    </h3>
+                    <p class="text-sm sm:text-base text-amber-100/80 leading-relaxed">
+                        Planning a family dinner, birthday celebration, corporate lunch, or grand engagement banquet? Reserve your spot in advance for priority royal service.
+                    </p>
+                    
+                    <div class="space-y-3 pt-2 text-sm text-amber-100/90">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="clock" class="w-5 h-5 text-gold-400 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <p class="font-semibold text-gold-300">Opening Hours</p>
+                                <p class="text-xs text-amber-200/70">Monday – Sunday: 11:30 AM to 11:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-gold-400 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <p class="font-semibold text-gold-300">Location</p>
+                                <p id="display-address" class="text-xs text-amber-200/70">Red Palace Family Restaurant & Banquet Hall, Main Road</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="phone-call" class="w-5 h-5 text-gold-400 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <p class="font-semibold text-gold-300">Direct Reservation Desk</p>
+                                <p id="display-phone" class="text-xs text-amber-200/70">+91 82927 94750</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Booking Form -->
+                <div class="lg:col-span-7 bg-maroon-950/80 border border-gold-500/25 rounded-2xl p-5 sm:p-8">
+                    <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gold-300 uppercase tracking-wider mb-1.5">Guest Name *</label>
+                                <input type="text" id="book-name" required placeholder="Enter your full name" class="w-full px-4 py-2.5 rounded-xl bg-maroon-900 border border-gold-500/30 text-sm text-amber-50 focus:outline-none focus:border-gold-400">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gold-300 uppercase tracking-wider mb-1.5">Mobile / WhatsApp *</label>
+                                <input type="tel" id="book-phone" required placeholder="10-digit mobile number" class="w-full px-4 py-2.5 rounded-xl bg-maroon-900 border border-gold-500/30 text-sm text-amber-50 focus:outline-none focus:border-gold-400">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gold-300 uppercase tracking-wider mb-1.5">Date *</label>
+                                <input type="date" id="book-date" required class="w-full px-3.5 py-2.5 rounded-xl bg-maroon-900 border border-gold-500/30 text-sm text-amber-50 focus:outline-none focus:border-gold-400">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gold-300 uppercase tracking-wider mb-1.5">Time Slot *</label>
+                                <select id="book-time" class="w-full px-3.5 py-2.5 rounded-xl bg-maroon-900 border border-gold-500/30 text-sm text-amber-50 focus:outline-none focus:border-gold-400">
+                                    <option value="01:00 PM (Lunch)">01:00 PM (Lunch)</option>
+                                    <option value="02:30 PM (Lunch)">02:30 PM (Lunch)</option>
+                                    <option value="07:30 PM (Dinner)">07:30 PM (Dinner)</option>
+                                    <option value="08:30 PM (Prime Dinner)" selected>08:30 PM (Prime Dinner)</option>
+                                    <option value="09:30 PM (Late Dinner)">09:30 PM (Late Dinner)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gold-300 uppercase tracking-wider mb-1.5">No. of Guests *</label>
+                                <select id="book-guests" class="w-full px-3.5 py-2.5 rounded-xl bg-maroon-900 border border-gold-500/30 text-sm text-amber-50 focus:outline-none focus:border-gold-400">
+                                    <option value="2 Guests">2 Guests</option>
+                                    <option value="4 Guests" selected>4 Guests (Family)</option>
+                                    <option value="6 Guests">6 Guests</option>
+                                    <option value="8-12 Guests">8-12 Guests</option>
+                                    <option value="20+ Banquet Inquiry">20+ Banquet Inquiry</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gold-300 uppercase tracking-wider mb-1.5">Occasion / Arrangement</label>
+                            <select id="book-occasion" class="w-full px-4 py-2.5 rounded-xl bg-maroon-900 border border-gold-500/30 text-sm text-amber-50 focus:outline-none focus:border-gold-400">
+                                <option value="Casual Family Dining">Casual Family Dining</option>
+                                <option value="Birthday Celebration">Birthday Celebration (Cake Table Setup)</option>
+                                <option value="Anniversary Dinner">Anniversary Special Dinner</option>
+                                <option value="Banquet Hall / Party Booking">Banquet Hall / Party Event Booking</option>
+                            </select>
+                        </div>
+
+                        <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                            <button type="submit" class="flex-1 py-3 px-6 rounded-xl gold-gradient-bg text-maroon-950 font-bold text-sm shadow-lg hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="ticket" class="w-4 h-4"></i>
+                                <span>Generate Instant Pass & Send on WhatsApp</span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Digital Booking Pass Preview (Shown after submit) -->
+                    <div id="booking-pass-card" class="hidden mt-6 p-5 rounded-2xl bg-gradient-to-br from-maroon-800 to-maroon-950 border-2 border-gold-400 relative">
+                        <div class="flex items-center justify-between border-b border-gold-500/30 pb-3 mb-3">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-widest text-gold-400 font-bold">Confirmed Digital Pass</span>
+                                <h4 class="font-royal text-lg font-bold text-amber-50">RED PALACE VIP ENTRY</h4>
+                            </div>
+                            <span id="pass-id" class="px-2.5 py-1 rounded-lg bg-gold-500/20 text-gold-300 font-mono text-xs font-bold">#RP-8842</span>
+                        </div>
+                        <div id="pass-details" class="grid grid-cols-2 gap-2 text-xs text-amber-100/90 mb-4">
+                            <!-- Filled dynamically -->
+                        </div>
+                        <button onclick="sendBookingToWhatsApp()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Forward Pass to Restaurant WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LEGACY / HIGHLIGHTS SECTION ==================== -->
+    <section id="specialties-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="royal-card rounded-2xl p-6 text-center">
+                <div class="w-12 h-12 rounded-2xl gold-gradient-bg text-maroon-950 flex items-center justify-center mx-auto mb-4 shadow-md">
+                    <i data-lucide="award" class="w-6 h-6"></i>
+                </div>
+                <h4 class="font-serif text-lg font-bold text-gold-300 mb-2">Signature Handi & Tandoor</h4>
+                <p class="text-xs sm:text-sm text-amber-100/75 leading-relaxed">
+                    Slow-cooked Red Palace Special Handi Mutton, Paneer Tikka Lababdar, and charcoal-roasted Afgani Chicken crafted with hand-ground royal spices.
+                </p>
+            </div>
+            <div class="royal-card rounded-2xl p-6 text-center">
+                <div class="w-12 h-12 rounded-2xl gold-gradient-bg text-maroon-950 flex items-center justify-center mx-auto mb-4 shadow-md">
+                    <i data-lucide="sparkles" class="w-6 h-6"></i>
+                </div>
+                <h4 class="font-serif text-lg font-bold text-gold-300 mb-2">Grand Banquet Celebrations</h4>
+                <p class="text-xs sm:text-sm text-amber-100/75 leading-relaxed">
+                    Spacious air-conditioned banquet hall tailored for weddings, engagements, birthday parties, and corporate gatherings with customized buffet menus.
+                </p>
+            </div>
+            <div class="royal-card rounded-2xl p-6 text-center">
+                <div class="w-12 h-12 rounded-2xl gold-gradient-bg text-maroon-950 flex items-center justify-center mx-auto mb-4 shadow-md">
+                    <i data-lucide="smartphone" class="w-6 h-6"></i>
+                </div>
+                <h4 class="font-serif text-lg font-bold text-gold-300 mb-2">Zero-Commission Direct Order</h4>
+                <p class="text-xs sm:text-sm text-amber-100/75 leading-relaxed">
+                    Enjoy exact dine-in menu pricing with no inflated app markups. Order directly via WhatsApp for Dine-In, Takeaway, or Home Delivery.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-maroon-950 border-t border-gold-500/25 pt-10 pb-28 md:pb-10 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+                <h5 class="font-royal text-xl font-bold gold-gradient-text">RED PALACE</h5>
+                <p class="text-xs text-amber-200/70 mt-1">Multi-Cuisine Family Restaurant & Banquet Hall • Pure Quality & Royal Taste</p>
+            </div>
+            <div class="text-xs text-amber-200/60 space-y-1 md:text-right">
+                <p>© 2026 Red Palace Restaurant & Banquet. All Rights Reserved.</p>
+                <p class="text-gold-400/90 font-medium">
+                    Crafted by <span class="underline">Ashish Sharma</span> • Full-Stack Web Developer (<a href="tel:+918292794750" class="hover:text-gold-300">8292794750</a>)
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MOBILE STICKY BOTTOM CART BAR ==================== -->
+    <div id="mobile-cart-bar" class="hidden fixed bottom-3 left-3 right-3 z-40 md:hidden">
+        <button onclick="toggleCart(true)" class="w-full py-3.5 px-5 rounded-2xl gold-gradient-bg text-maroon-950 font-extrabold shadow-2xl flex items-center justify-between pulse-gold">
+            <div class="flex items-center gap-2.5">
+                <span id="mobile-bar-count" class="bg-maroon-950 text-gold-400 text-xs px-2.5 py-1 rounded-lg">0 Items</span>
+                <span id="mobile-bar-total" class="text-base">₹0</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-sm">
+                <span>View Order & Checkout</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </div>
+        </button>
+    </div>
+
+    <!-- ==================== SLIDE-OVER CART & WHATSAPP CHECKOUT DRAWER ==================== -->
+    <div id="cart-drawer-backdrop" onclick="toggleCart(false)" class="hidden fixed inset-0 bg-black/75 backdrop-blur-sm z-50 transition-opacity"></div>
+    
+    <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[440px] bg-maroon-950 border-l border-gold-500/35 z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+        <!-- Drawer Header -->
+        <div class="p-5 border-b border-gold-500/25 flex items-center justify-between bg-maroon-900/60">
+            <div class="flex items-center gap-2.5">
+                <i data-lucide="shopping-bag" class="w-5 h-5 text-gold-400"></i>
+                <h4 class="font-serif text-xl font-bold text-amber-50">Your Royal Order</h4>
+            </div>
+            <button onclick="toggleCart(false)" class="p-2 rounded-xl bg-maroon-800 text-amber-200 hover:text-gold-400">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Drawer Body (Scrollable) -->
+        <div class="flex-1 overflow-y-auto p-5 space-y-5">
+            <!-- Empty Cart View -->
+            <div id="cart-empty-msg" class="text-center py-12">
+                <div class="w-16 h-16 rounded-full bg-maroon-900 border border-gold-500/25 flex items-center justify-center mx-auto mb-3 text-gold-400/70">
+                    <i data-lucide="utensils-crossed" class="w-7 h-7"></i>
+                </div>
+                <p class="font-serif text-lg font-semibold text-amber-100">Your plate is empty</p>
+                <p class="text-xs text-amber-200/60 mt-1">Select delicious dishes from the menu to place your order.</p>
+                <button onclick="toggleCart(false)" class="mt-4 px-5 py-2 rounded-xl border border-gold-500/40 text-gold-400 text-xs font-bold hover:bg-gold-500/10">
+                    Browse Menu
+                </button>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cart-items-list" class="space-y-3">
+                <!-- Populated dynamically -->
+            </div>
+
+            <!-- Checkout Form (Shown when cart has items) -->
+            <div id="cart-checkout-form" class="hidden space-y-4 pt-4 border-t border-gold-500/25">
+                
+                <!-- Bill Breakdown -->
+                <div class="p-4 rounded-2xl bg-maroon-900/80 border border-gold-500/25 space-y-2 text-sm">
+                    <div class="flex justify-between text-amber-200/80">
+                        <span>Item Subtotal</span>
+                        <span id="bill-subtotal" class="font-semibold text-amber-50">₹0</span>
+                    </div>
+                    <div class="flex justify-between items-center text-amber-200/80 text-xs">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" id="include-gst" onchange="renderCart()" class="accent-gold-500 rounded">
+                            <span>Include 5% GST (Restaurant Tax)</span>
+                        </label>
+                        <span id="bill-gst">₹0</span>
+                    </div>
+                    <div class="flex justify-between font-bold text-base text-gold-400 pt-2 border-t border-gold-500/20">
+                        <span>Grand Total</span>
+                        <span id="bill-total">₹0</span>
+                    </div>
+                </div>
+
+                <!-- Order Type Selector -->
+                <div>
+                    <label class="block text-xs font-bold text-gold-300 uppercase tracking-wider mb-2">Order Type</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button type="button" onclick="setOrderType('Delivery')" id="type-Delivery" class="order-type-btn py-2 px-2 rounded-xl text-xs font-bold gold-gradient-bg text-maroon-950 border border-transparent">
+                            Home Delivery
+                        </button>
+                        <button type="button" onclick="setOrderType('Dine-In')" id="type-Dine-In" class="order-type-btn py-2 px-2 rounded-xl text-xs font-semibold bg-maroon-900 text-amber-100 border border-gold-500/30">
+                            Dine-In (Table)
+                        </button>
+                        <button type="button" onclick="setOrderType('Takeaway')" id="type-Takeaway" class="order-type-btn py-2 px-2 rounded-xl text-xs font-semibold bg-maroon-900 text-amber-100 border border-gold-500/30">
+                            Takeaway
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Customer Details -->
+                <div class="space-y-3">
+                    <input type="text" id="cust-name" placeholder="Your Name *" class="w-full px-3.5 py-2.5 rounded-xl bg-maroon-900 border border-gold-500/30 text-sm text-amber-50 placeholder-amber-200/40 focus:outline-none focus:border-gold-400">
+                    <input type="tel" id="cust-phone" placeholder="Your Mobile Number *" class="w-full px-3.5 py-2.5 rounded-xl bg-maroon-900 border border-gold-500/30 text-sm text-amber-50 placeholder-amber-200/40 focus:outline-none focus:border-gold-400">
+                    
+                    <div id="address-field-wrap">
+                        <textarea id="cust-address" rows="2" placeholder="Full Delivery Address / Landmark *" class="w-full px-3.5 py-2 rounded-xl bg-maroon-900 border border-gold-500/30 text-sm text-amber-50 placeholder-amber-200/40 focus:outline-none focus:border-gold-400"></textarea>
+                    </div>
+
+                    <div id="table-field-wrap" class="hidden">
+                        <input type="text" id="cust-table" placeholder="Enter Table Number (e.g., Table 05) *" class="w-full px-3.5 py-2.5 rounded-xl bg-maroon-900 border border-gold-500/30 text-sm text-amber-50 placeholder-amber-200/40 focus:outline-none focus:border-gold-400">
+                    </div>
+
+                    <input type="text" id="cust-notes" placeholder="Cooking Instructions (e.g., Less Spicy, Extra Onion)" class="w-full px-3.5 py-2 rounded-xl bg-maroon-900 border border-gold-500/20 text-xs text-amber-50 placeholder-amber-200/40 focus:outline-none focus:border-gold-400">
+                </div>
+            </div>
+        </div>
+
+        <!-- Drawer Footer Actions -->
+        <div id="cart-drawer-footer" class="hidden p-4 border-t border-gold-500/25 bg-maroon-900/90 space-y-2.5">
+            <button onclick="placeWhatsAppOrder()" class="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <span>Place Order on WhatsApp</span>
+            </button>
+            <div class="flex gap-2">
+                <button onclick="copyOrderBill()" class="flex-1 py-2 px-3 rounded-xl bg-maroon-800 border border-gold-500/30 text-gold-300 text-xs font-semibold hover:bg-maroon-700 flex items-center justify-center gap-1.5">
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                    <span>Copy Bill</span>
+                </button>
+                <button onclick="clearCart()" class="py-2 px-3 rounded-xl bg-maroon-950 border border-red-500/30 text-red-400 text-xs font-semibold hover:bg-red-950/40">
+                    Clear Cart
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ==================== DEMO SETTINGS MODAL (FOR CLIENT PITCH) ==================== -->
+    <div id="settings-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="royal-card rounded-3xl max-w-md w-full p-6 border border-gold-500/50 space-y-4">
+            <div class="flex items-center justify-between border-b border-gold-500/25 pb-3">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="settings" class="w-5 h-5 text-gold-400"></i>
+                    <h4 class="font-serif text-lg font-bold text-amber-50">Restaurant Demo Settings</h4>
+                </div>
+                <button onclick="closeSettingsModal()" class="text-amber-200/70 hover:text-gold-400">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <p class="text-xs text-amber-200/75">
+                Customize the receiving WhatsApp number, address, and banner tagline live before showing this demo to the Red Palace owner.
+            </p>
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-xs font-semibold text-gold-300 mb-1">Restaurant WhatsApp Number (with 91)</label>
+                    <input type="text" id="setting-wa-number" value="918292794750" class="w-full px-3.5 py-2.5 rounded-xl bg-maroon-900 border border-gold-500/30 text-sm text-amber-50">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gold-300 mb-1">Restaurant Address</label>
+                    <input type="text" id="setting-address" value="Red Palace Family Restaurant & Banquet Hall, Main Road" class="w-full px-3.5 py-2.5 rounded-xl bg-maroon-900 border border-gold-500/30 text-sm text-amber-50">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gold-300 mb-1">Hero Banner Tagline</label>
+                    <input type="text" id="setting-tagline" value="Authentic Tandoori • Indian Curries • Oriental Chinese • Mocktails" class="w-full px-3.5 py-2.5 rounded-xl bg-maroon-900 border border-gold-500/30 text-sm text-amber-50">
+                </div>
+            </div>
+            <div class="pt-2 flex justify-end gap-2">
+                <button onclick="closeSettingsModal()" class="px-4 py-2 rounded-xl bg-maroon-800 text-amber-100 text-xs font-semibold">Cancel</button>
+                <button onclick="saveDemoSettings()" class="px-5 py-2 rounded-xl gold-gradient-bg text-maroon-950 font-bold text-xs">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== CUSTOM TOAST NOTIFICATION ==================== -->
+    <div id="toast-box" class="fixed top-20 right-4 z-50 transform translate-x-[150%] transition-transform duration-300 max-w-xs w-full">
+        <div class="px-4 py-3 rounded-2xl bg-maroon-900 border border-gold-400 shadow-2xl flex items-center gap-3">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-gold-400 flex-shrink-0"></i>
+            <p id="toast-message" class="text-xs sm:text-sm font-medium text-amber-50">Action completed!</p>
+        </div>
+    </div>
+
+    <!-- ==================== COMPLETE MENU DATA & APPLICATION LOGIC ==================== -->
+    <script>
+        // 0. VERIFIED UNSPLASH FOOD PHOTOGRAPHY MAPPING & INLINE SVG FALLBACK GENERATOR
+        const CATEGORY_PHOTOS = {
+            "Beverage": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80",
+            "Salad & Raita": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
+            "Soup Veg.": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80",
+            "Soup Non-Veg.": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=600&q=80",
+            "Tandoori Veg. Starter": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80",
+            "Tandoori Non-Veg. Starter": "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80",
+            "Indian Main Course Curries": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80",
+            "Main Course Non-Veg Curries": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80",
+            "Chinese Starter & Main Course": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=600&q=80",
+            "Chinese Non-Veg Starter & Main Course": "https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=600&q=80",
+            "Rice": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80",
+            "Dal": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80",
+            "Indian Breads": "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80",
+            "Desserts": "https://images.unsplash.com/photo-1589119908995-c6837fa14848?auto=format&fit=crop&w=600&q=80"
+        };
+
+        // Specific dish photo overrides for iconic dishes
+        function getDishImageUrl(item, category) {
+            const n = item.name.toLowerCase();
+            if (n.includes("coffee")) return "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=80";
+            if (n.includes("tea")) return "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80";
+            if (n.includes("milk shake") || n.includes("lassi") || n.includes("strawberry")) return "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80";
+            if (n.includes("fish")) return "https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?auto=format&fit=crop&w=600&q=80";
+            if (n.includes("mutton")) return "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80";
+            if (n.includes("noodles")) return "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&w=600&q=80";
+            if (n.includes("fried rice")) return "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80";
+            if (n.includes("french fries") || n.includes("potato")) return "https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=600&q=80";
+            if (n.includes("brownie")) return "https://images.unsplash.com/photo-1564355808539-22fda35bed7e?auto=format&fit=crop&w=600&q=80";
+            if (n.includes("ice-cream") || n.includes("scotch") || n.includes("pista") || n.includes("chocolate") || n.includes("tutti")) return "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80";
+            return CATEGORY_PHOTOS[category] || "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80";
+        }
+
+        // Built-in JavaScript onerror fallback: generates a crisp Royal Maroon & Gold inline SVG illustration so no broken image ever appears
+        function handleImgError(imgEl, labelText) {
+            imgEl.onerror = null;
+            const safeLabel = (labelText || "Red Palace Dish").replace(/[<>&'"]/g, "").slice(0, 28);
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360">
+                <defs>
+                    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#4A0A12"/>
+                        <stop offset="100%" stop-color="#2B0409"/>
+                    </linearGradient>
+                </defs>
+                <rect width="600" height="360" fill="url(#bg)"/>
+                <rect x="14" y="14" width="572" height="332" rx="16" fill="none" stroke="#D4AF37" stroke-opacity="0.4" stroke-width="2"/>
+                <circle cx="300" cy="145" r="46" fill="#D4AF37" fill-opacity="0.15" stroke="#D4AF37" stroke-width="2"/>
+                <path d="M282 155 L318 155 M286 142 C286 128 314 128 314 142 Z M300 123 L300 128" stroke="#F3E5AB" stroke-width="3" stroke-linecap="round" fill="none"/>
+                <text x="300" y="225" text-anchor="middle" fill="#F3E5AB" font-family="Georgia, serif" font-size="22" font-weight="bold">${safeLabel}</text>
+                <text x="300" y="255" text-anchor="middle" fill="#D4AF37" font-family="sans-serif" font-size="13" letter-spacing="3">RED PALACE ROYAL KITCHEN</text>
+            </svg>`;
+            imgEl.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+        }
+
+        // 1. COMPLETE RED PALACE MENU DATABASE (All 14 categories & 150+ items)
+        const MENU_DATA = [
+            {
+                category: "Beverage",
+                icon: "cup-soda",
+                items: [
+                    { id: "bev-1", name: "Blue Lagoon", veg: true, price: 120 },
+                    { id: "bev-2", name: "Pina-Colada", veg: true, price: 160 },
+                    { id: "bev-3", name: "Virgin Mojito", veg: true, price: 140 },
+                    { id: "bev-4", name: "Fresh Lime Water", veg: true, variants: [{ label: "Sweet", price: 40 }, { label: "Salty", price: 40 }] },
+                    { id: "bev-5", name: "Fresh Lime Soda", veg: true, variants: [{ label: "Sweet", price: 120 }, { label: "Salty", price: 120 }] },
+                    { id: "bev-6", name: "Redimate / Lemon / Black Tea", veg: true, variants: [{ label: "Redimate Tea", price: 50 }, { label: "Lemon Tea", price: 50 }, { label: "Black Tea", price: 50 }] },
+                    { id: "bev-7", name: "Coffee", veg: true, price: 60 },
+                    { id: "bev-8", name: "Cold Coffee with Ice-Cream", veg: true, price: 160 },
+                    { id: "bev-9", name: "Lassi", veg: true, variants: [{ label: "Sweet", price: 120 }, { label: "Salty", price: 120 }] },
+                    { id: "bev-10", name: "Butter Milk", veg: true, price: 110 },
+                    { id: "bev-11", name: "Vanilla Milk Shake", veg: true, price: 160 },
+                    { id: "bev-12", name: "Strawberry Sunrise", veg: true, price: 160 },
+                    { id: "bev-13", name: "Soft Drink", veg: true, price: 45 },
+                    { id: "bev-14", name: "Soda (Bottle)", veg: true, price: 50 },
+                    { id: "bev-15", name: "Mineral Water", veg: true, price: 20 }
+                ]
+            },
+            {
+                category: "Salad & Raita",
+                icon: "salad",
+                items: [
+                    { id: "sr-1", name: "Green Salad", veg: true, price: 80 },
+                    { id: "sr-2", name: "Kachumber Salad", veg: true, price: 90 },
+                    { id: "sr-3", name: "Onion Salad", veg: true, price: 50 },
+                    { id: "sr-4", name: "Raita (Cucumber / Mix Veg / Onion / Boondi)", veg: true, variants: [{ label: "Boondi", price: 100 }, { label: "Mix Veg", price: 100 }, { label: "Cucumber", price: 100 }, { label: "Onion", price: 100 }] },
+                    { id: "sr-5", name: "Pineapple Raita", veg: true, price: 100 },
+                    { id: "sr-6", name: "Papad Dry / Fry", veg: true, variants: [{ label: "Dry Papad", price: 35 }, { label: "Fry Papad", price: 35 }] },
+                    { id: "sr-7", name: "Masala Papad", veg: true, price: 60 }
+                ]
+            },
+            {
+                category: "Soup Veg.",
+                icon: "soup",
+                items: [
+                    { id: "sv-1", name: "Cream of Mushroom", veg: true, price: 130 },
+                    { id: "sv-2", name: "Cream of Tomato", veg: true, price: 130 },
+                    { id: "sv-3", name: "Veg. Hot & Sour", veg: true, price: 130 },
+                    { id: "sv-4", name: "Manchow Soup", veg: true, price: 130 },
+                    { id: "sv-5", name: "Lemon Coriander", veg: true, price: 130 },
+                    { id: "sv-6", name: "Sweet Corn", veg: true, price: 130 },
+                    { id: "sv-7", name: "Vegetables Clear Soup", veg: true, price: 130 }
+                ]
+            },
+            {
+                category: "Soup Non-Veg.",
+                icon: "soup",
+                items: [
+                    { id: "snv-1", name: "Chicken Hot & Sour", veg: false, price: 140 },
+                    { id: "snv-2", name: "Chicken Manchow", veg: false, price: 140 },
+                    { id: "snv-3", name: "Chicken Lemon Coriander", veg: false, price: 140 },
+                    { id: "snv-4", name: "Chicken Sweet Corn Soup", veg: false, price: 140 },
+                    { id: "snv-5", name: "Chicken Clear Soup", veg: false, price: 140 }
+                ]
+            },
+            {
+                category: "Tandoori Veg. Starter",
+                icon: "flame",
+                items: [
+                    { id: "tvs-1", name: "Veg. Seekh Kebab (6 Pc.)", veg: true, price: 260 },
+                    { id: "tvs-2", name: "Dahi Ke Kebab (6 Pc.)", veg: true, price: 290 },
+                    { id: "tvs-3", name: "Harabhara Kebab", veg: true, price: 260 },
+                    { id: "tvs-4", name: "Ajwain Paneer Tikka (8 Pc.)", veg: true, price: 260 },
+                    { id: "tvs-5", name: "Paneer Malai Tikka (8 Pc.)", veg: true, price: 260 },
+                    { id: "tvs-6", name: "Kasundi Paneer Tikka with Shaslik (8 Pc.)", veg: true, price: 260 },
+                    { id: "tvs-7", name: "Paneer Achari Tikka (8 Pc.)", veg: true, price: 260 },
+                    { id: "tvs-8", name: "Paneer Banjara Tikka (8 Pc.)", veg: true, price: 260 },
+                    { id: "tvs-9", name: "Bharwa Tandoori Aloo (6 Pc.)", veg: true, price: 240 },
+                    { id: "tvs-10", name: "Tandoori Malai Broccoli (6 Pc.)", veg: true, price: 300 },
+                    { id: "tvs-11", name: "Amritsari Til Wala Aloo (8 Pc.)", veg: true, price: 240 }
+                ]
+            },
+            {
+                category: "Tandoori Non-Veg. Starter",
+                icon: "flame",
+                items: [
+                    { id: "tnvs-1", name: "Tandoori Afgani Chicken", veg: false, variants: [{ label: "Half", price: 310 }, { label: "Full", price: 550 }] },
+                    { id: "tnvs-2", name: "Tandoori Chicken", veg: false, variants: [{ label: "Half", price: 290 }, { label: "Full", price: 500 }] },
+                    { id: "tnvs-3", name: "Chicken Kali Mirch Tikka (8 Pc.)", veg: false, price: 290 },
+                    { id: "tnvs-4", name: "Afgani Chicken Tikka (8 Pc.)", veg: false, price: 320 },
+                    { id: "tnvs-5", name: "Lahsooni Chicken Tikka (8 Pc.)", veg: false, price: 320 },
+                    { id: "tnvs-6", name: "Stuffed Tangdi Kebab (4 Pc.)", veg: false, price: 350 },
+                    { id: "tnvs-7", name: "Tangdi Kebab (4 Pc.)", veg: false, price: 320 },
+                    { id: "tnvs-8", name: "Chicken Malai Tikka (8 Pc.)", veg: false, price: 320 },
+                    { id: "tnvs-9", name: "Chicken Pahadi Tikka (8 Pc.)", veg: false, price: 320 },
+                    { id: "tnvs-10", name: "Chicken Punjabi Tikka (8 Pc.)", veg: false, price: 360 },
+                    { id: "tnvs-11", name: "Chicken Achari Tikka (8 Pc.)", veg: false, price: 320 },
+                    { id: "tnvs-12", name: "Chicken Tikka (8 Pc.)", veg: false, price: 290 },
+                    { id: "tnvs-13", name: "Kasundi Fish Tikka (6 Pc.)", veg: false, price: 280 },
+                    { id: "tnvs-14", name: "Amritsari Fish Fry (8 Pc.)", veg: false, price: 280 },
+                    { id: "tnvs-15", name: "Fish Fry Rohu (4 Pc.)", veg: false, price: 300 },
+                    { id: "tnvs-16", name: "Fish Koliwada (6 Pc.)", veg: false, price: 290 },
+                    { id: "tnvs-17", name: "Fish Finger Serve with Tartar Sauce (8 Pc.)", veg: false, price: 280 },
+                    { id: "tnvs-18", name: "Bhuna Chicken Dry (8 Pc. Boneless)", veg: false, price: 330 }
+                ]
+            },
+            {
+                category: "Indian Main Course Curries",
+                icon: "utensils",
+                items: [
+                    { id: "imc-1", name: "Kadhai Paneer (8 Pc.)", veg: true, price: 290 },
+                    { id: "imc-2", name: "Paneer Tikka Lababdar (8 Pc.)", veg: true, price: 290 },
+                    { id: "imc-3", name: "Paneer Patiyala", veg: true, price: 310 },
+                    { id: "imc-4", name: "Kaju Curry", veg: true, price: 330 },
+                    { id: "imc-5", name: "Malai Kofta (6 Pc.)", veg: true, price: 330 },
+                    { id: "imc-6", name: "Veg Kofta (6 Pc.)", veg: true, price: 280 },
+                    { id: "imc-7", name: "Paneer Butter Masala (8 Pc.)", veg: true, price: 290 },
+                    { id: "imc-8", name: "Matar Paneer (8 Pc.)", veg: true, price: 290 },
+                    { id: "imc-9", name: "Palak Paneer (8 Pc.)", veg: true, price: 290 },
+                    { id: "imc-10", name: "Paneer Do Pyaja (8 Pc.)", veg: true, price: 290 },
+                    { id: "imc-11", name: "Methi Matar Malai", veg: true, price: 300 },
+                    { id: "imc-12", name: "Aloo Dum Banarasi (4 Pc.)", veg: true, price: 280 },
+                    { id: "imc-13", name: "Paneer Khurchan", veg: true, price: 290 },
+                    { id: "imc-14", name: "Palak Makai Ki Sabji", veg: true, price: 290 },
+                    { id: "imc-15", name: "Mushroom Kadhai", veg: true, price: 290 },
+                    { id: "imc-16", name: "Mushroom Matar Masala", veg: true, price: 290 },
+                    { id: "imc-17", name: "Mushroom Do Pyaja", veg: true, price: 290 },
+                    { id: "imc-18", name: "Mushroom Patiyala", veg: true, price: 310 },
+                    { id: "imc-19", name: "Subj Jhalfreji", veg: true, price: 280 },
+                    { id: "imc-20", name: "Mix Veg", veg: true, price: 260 },
+                    { id: "imc-21", name: "Aloo Jeera", veg: true, price: 220 },
+                    { id: "imc-22", name: "Seasonal Vegetables", veg: true, price: 260 }
+                ]
+            },
+            {
+                category: "Main Course Non-Veg Curries",
+                icon: "utensils",
+                items: [
+                    { id: "nvc-1", name: "Butter Chicken Masala with Bone (4 Pc.)", veg: false, price: 380 },
+                    { id: "nvc-2", name: "Butter Chicken Masala Boneless", veg: false, price: 380 },
+                    { id: "nvc-3", name: "Chicken Kadhai (4 Pc.)", veg: false, price: 380 },
+                    { id: "nvc-4", name: "Chicken Rara (4 Pc.)", veg: false, price: 380 },
+                    { id: "nvc-5", name: "Chicken Do Pyaja (4 Pc.)", veg: false, price: 380 },
+                    { id: "nvc-6", name: "Chicken Handi (4 Pc.)", veg: false, price: 380 },
+                    { id: "nvc-7", name: "Chicken Curry (4 Pc.)", veg: false, price: 360 },
+                    { id: "nvc-8", name: "Chicken Methi Malai (4 Pc.)", veg: false, price: 380 },
+                    { id: "nvc-9", name: "Red Palace Special Handi Mutton (4 Pc.)", veg: false, price: 450, featured: true },
+                    { id: "nvc-10", name: "Mutton Rogan Josh (4 Pc.)", veg: false, price: 440 },
+                    { id: "nvc-11", name: "Mutton Do Pyaja (4 Pc.)", veg: false, price: 440 },
+                    { id: "nvc-12", name: "Mutton Curry (4 Pc.)", veg: false, price: 440 },
+                    { id: "nvc-13", name: "Chicken Mughlai (4 Pc.)", veg: false, price: 380 },
+                    { id: "nvc-14", name: "Egg Curry (2 Pc.)", veg: false, price: 210 },
+                    { id: "nvc-15", name: "Fish Curry (Basa) 4 Pc.", veg: false, price: 300 },
+                    { id: "nvc-16", name: "Fish Curry (Rohu) 4 Pc.", veg: false, price: 330 }
+                ]
+            },
+            {
+                category: "Chinese Starter & Main Course",
+                icon: "sparkles",
+                items: [
+                    { id: "chv-1", name: "Chilli Paneer (10 Pc.)", veg: true, variants: [{ label: "Dry", price: 250 }, { label: "Gravy", price: 250 }] },
+                    { id: "chv-2", name: "Veg Manchurian (10 Pc.)", veg: true, variants: [{ label: "Dry", price: 240 }, { label: "Gravy", price: 240 }] },
+                    { id: "chv-3", name: "Paneer Manchurian (10 Pc.)", veg: true, variants: [{ label: "Dry", price: 250 }, { label: "Gravy", price: 250 }] },
+                    { id: "chv-4", name: "Malaysian Paneer (10 Pc.)", veg: true, price: 250 },
+                    { id: "chv-5", name: "Paneer 65 (10 Pc.)", veg: true, price: 250 },
+                    { id: "chv-6", name: "Mushroom Chilli (10 Pc.)", veg: true, variants: [{ label: "Dry", price: 260 }, { label: "Gravy", price: 260 }] },
+                    { id: "chv-7", name: "Mushroom Corn Salt and Pepper", veg: true, price: 270 },
+                    { id: "chv-8", name: "Vegetables Salt and Pepper", veg: true, price: 270 },
+                    { id: "chv-9", name: "Crispy Corn Salt and Pepper", veg: true, price: 270 },
+                    { id: "chv-10", name: "Paneer Spring Roll", veg: true, price: 260 },
+                    { id: "chv-11", name: "Veg. Spring Roll", veg: true, price: 240 },
+                    { id: "chv-12", name: "Golden Fried Crispy Baby Corn", veg: true, price: 280 },
+                    { id: "chv-13", name: "French Fries", veg: true, price: 200 },
+                    { id: "chv-14", name: "Crispy Honey Chilli Potato", veg: true, price: 250 },
+                    { id: "chv-15", name: "Veg. Hakka Noodles", veg: true, price: 240 },
+                    { id: "chv-16", name: "Paneer Hakka Noodles", veg: true, price: 260 },
+                    { id: "chv-17", name: "Chilli Garlic Hakka Noodles", veg: true, price: 250 },
+                    { id: "chv-18", name: "Mix Veg Hakka Noodles", veg: true, price: 300 },
+                    { id: "chv-19", name: "Vegetables Fried Rice", veg: true, price: 240 },
+                    { id: "chv-20", name: "Paneer Fried Rice", veg: true, price: 260 },
+                    { id: "chv-21", name: "Chilli Garlic Fried Rice", veg: true, price: 250 }
+                ]
+            },
+            {
+                category: "Chinese Non-Veg Starter & Main Course",
+                icon: "sparkles",
+                items: [
+                    { id: "chnv-1", name: "Chilli Chicken (10 Pc.)", veg: false, variants: [{ label: "Dry", price: 270 }, { label: "Gravy", price: 270 }] },
+                    { id: "chnv-2", name: "Chicken Manchurian (10 Pc.)", veg: false, variants: [{ label: "Dry", price: 270 }, { label: "Gravy", price: 270 }] },
+                    { id: "chnv-3", name: "Chicken 65 (10 Pc.)", veg: false, price: 280 },
+                    { id: "chnv-4", name: "Egg Chilli (10 Pc.)", veg: false, variants: [{ label: "Dry", price: 250 }, { label: "Gravy", price: 250 }] },
+                    { id: "chnv-5", name: "Chicken Salt N Pepper (10 Pc.)", veg: false, price: 280 },
+                    { id: "chnv-6", name: "Egg Hakka Noodles", veg: false, price: 260 },
+                    { id: "chnv-7", name: "Chicken Lollypop (5 Pc.)", veg: false, price: 330 },
+                    { id: "chnv-8", name: "Chicken Hakka Noodles", veg: false, price: 270 },
+                    { id: "chnv-9", name: "Chicken Chilli Garlic Hakka Noodles", veg: false, price: 270 },
+                    { id: "chnv-10", name: "Egg Fried Rice", veg: false, price: 260 },
+                    { id: "chnv-11", name: "Chicken Fried Rice", veg: false, price: 270 },
+                    { id: "chnv-12", name: "Egg Chilli Garlic Noodles", veg: false, price: 260 }
+                ]
+            },
+            {
+                category: "Rice",
+                icon: "bowl",
+                items: [
+                    { id: "rd-1", name: "Steamed Rice", veg: true, price: 200 },
+                    { id: "rd-3", name: "Jeera Rice", veg: true, price: 220 },
+                    { id: "rd-4", name: "Jeera Matar Pulao", veg: true, price: 230 },
+                    { id: "rd-5", name: "Veg. Pulao", veg: true, price: 250 },
+                    { id: "rd-2", name: "Half Steam Rice", veg: true, price: 110 }
+                ]
+            },
+            {
+                category: "Dal",
+                icon: "bowl",
+                items: [
+                    { id: "rd-6", name: "Dal Tadka / Fry", veg: true, variants: [{ label: "Dal Tadka", price: 220 }, { label: "Dal Fry", price: 220 }] },
+                    { id: "rd-7", name: "Dal Dhaba", veg: true, price: 220 },
+                    { id: "rd-8", name: "Dal Makhani", veg: true, price: 240 }
+                ]
+            },
+            {
+                category: "Indian Breads",
+                icon: "wheat",
+                items: [
+                    { id: "ib-2", name: "Tandoori Butter Roti", veg: true, price: 30 },
+                    { id: "ib-1", name: "Tandoori Roti", veg: true, price: 25 },
+                    { id: "ib-4", name: "Butter Naan", veg: true, price: 45 },
+                    { id: "ib-3", name: "Plain Naan", veg: true, price: 40 },
+                    { id: "ib-6", name: "Cheese Naan", veg: true, price: 70 },
+                    { id: "ib-7", name: "Cheese Garlic Naan", veg: true, price: 80 },
+                    { id: "ib-5", name: "Garlic Naan", veg: true, price: 60 },
+                    { id: "ib-8", name: "Laccha Paratha", veg: true, price: 50 },
+                    { id: "ib-9", name: "Mirchi Laccha Paratha", veg: true, variants: [{ label: "Red", price: 55 }, { label: "Green", price: 55 }] },
+                    { id: "ib-10", name: "Stuffed Kulcha", veg: true, variants: [{ label: "Onion", price: 70 }, { label: "Aloo", price: 70 }, { label: "Mix", price: 70 }] },
+                    { id: "ib-11", name: "Paneer Stuffed Kulcha", veg: true, price: 80 },
+                    { id: "ib-12", name: "Missi Roti", veg: true, price: 50 }
+                ]
+            },
+            {
+                category: "Desserts",
+                icon: "ice-cream",
+                items: [
+                    { id: "des-1", name: "Gulab Jamun (2 Pc.)", veg: true, price: 70 },
+                    { id: "des-2", name: "Warm Brownie Sundae", veg: true, price: 200 },
+                    { id: "des-3", name: "Hot Brownie Sizzler", veg: true, price: 220 },
+                    { id: "des-4", name: "Red Palace Special Tutti Frutti", veg: true, price: 200, featured: true },
+                    { id: "des-5", name: "Vanilla Ice-Cream (2 Scoop)", veg: true, price: 140 },
+                    { id: "des-6", name: "Vanilla Ice-Cream with Hot Chocolate Sauce (2 Scoop)", veg: true, price: 160 },
+                    { id: "des-7", name: "Butter Scotch (2 Scoop)", veg: true, price: 160 },
+                    { id: "des-8", name: "Kesar Pista (2 Scoop)", veg: true, price: 180 },
+                    { id: "des-9", name: "Chocolate (2 Scoop)", veg: true, price: 160 }
+                ]
+            }
+        ];
+
+        // 2. APPLICATION STATE
+        let state = {
+            searchQuery: "",
+            dietFilter: "all", // 'all' | 'veg' | 'nonveg'
+            activeCategory: "All",
+            selectedVariants: {}, // { itemId: variantIndex }
+            cart: [], // [{ key, id, name, variantLabel, price, veg, qty }]
+            orderType: "Delivery", // 'Delivery' | 'Dine-In' | 'Takeaway'
+            whatsappNumber: "918292794750",
+            restaurantAddress: "Red Palace Family Restaurant & Banquet Hall, Main Road",
+            bannerTagline: "Authentic Tandoori • Indian Curries • Oriental Chinese • Mocktails",
+            lastBookingPass: null
+        };
+
+        // 3. INITIALIZATION
+        window.addEventListener("DOMContentLoaded", () => {
+            // Set default date in booking form to today
+            const today = new Date().toISOString().split("T")[0];
+            document.getElementById("book-date").value = today;
+            document.getElementById("book-date").min = today;
+
+            // Load saved cart/settings if present
+            try {
+                const savedSettings = JSON.parse(localStorage.getItem("rp_settings"));
+                if (savedSettings) {
+                    state.whatsappNumber = savedSettings.whatsappNumber || state.whatsappNumber;
+                    state.restaurantAddress = savedSettings.restaurantAddress || state.restaurantAddress;
+                    state.bannerTagline = savedSettings.bannerTagline || state.bannerTagline;
+                    document.getElementById("setting-wa-number").value = state.whatsappNumber;
+                    document.getElementById("setting-address").value = state.restaurantAddress;
+                    document.getElementById("setting-tagline").value = state.bannerTagline;
+                    document.getElementById("display-address").textContent = state.restaurantAddress;
+                    document.getElementById("display-tagline").textContent = state.bannerTagline;
+                }
+            } catch (e) {}
+
+            renderCategoryTabs();
+            renderMenu();
+            renderCart();
+            lucide.createIcons();
+        });
+
+        // 4. RENDER CATEGORY TABS WITH THUMBNAILS
+        function renderCategoryTabs() {
+            const container = document.getElementById("category-tabs");
+            const categories = ["All", ...MENU_DATA.map(c => c.category)];
+
+            container.innerHTML = categories.map(cat => {
+                const isActive = state.activeCategory === cat;
+                const thumbUrl = cat === "All" 
+                    ? "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=100&q=70"
+                    : CATEGORY_PHOTOS[cat];
+
+                return `
+                    <button 
+                        onclick="setCategory('${cat.replace(/'/g, "\\'")}')"
+                        class="whitespace-nowrap pl-1.5 pr-3.5 py-1 rounded-full text-xs font-semibold transition-all flex-shrink-0 flex items-center gap-2 ${
+                            isActive 
+                            ? 'gold-gradient-bg text-maroon-950 font-bold shadow-md' 
+                            : 'bg-maroon-900/80 text-amber-100/80 border border-gold-500/20 hover:border-gold-400/60'
+                        }">
+                        <img src="${thumbUrl}" alt="${cat}" onerror="handleImgError(this, '${cat}')" class="w-5 h-5 rounded-full object-cover border border-gold-400/50">
+                        <span>${cat}</span>
+                    </button>
+                `;
+            }).join("");
+        }
+
+        // 5. FILTER HANDLERS
+        function setCategory(cat) {
+            state.activeCategory = cat;
+            renderCategoryTabs();
+            renderMenu();
+        }
+
+        function setDietFilter(diet) {
+            state.dietFilter = diet;
+            document.querySelectorAll(".diet-btn").forEach(btn => {
+                btn.classList.remove("gold-gradient-bg", "text-maroon-950", "font-bold");
+                btn.classList.add("text-amber-100/80", "font-semibold");
+            });
+            const activeBtn = document.getElementById(`filter-${diet}`);
+            activeBtn.classList.add("gold-gradient-bg", "text-maroon-950", "font-bold");
+            activeBtn.classList.remove("text-amber-100/80", "font-semibold");
+            renderMenu();
+        }
+
+        function handleSearch(val) {
+            state.searchQuery = val.trim().toLowerCase();
+            document.getElementById("clear-search-btn").classList.toggle("hidden", !state.searchQuery);
+            renderMenu();
+        }
+
+        function clearSearch() {
+            document.getElementById("menu-search").value = "";
+            handleSearch("");
+        }
+
+        function resetAllFilters() {
+            clearSearch();
+            setDietFilter("all");
+            setCategory("All");
+        }
+
+        // 6. VARIANT SELECTION HANDLER
+        function selectVariant(itemId, variantIndex) {
+            state.selectedVariants[itemId] = variantIndex;
+            renderMenu();
+        }
+
+        // 7. RENDER MENU GRID
+        function renderMenu() {
+            const container = document.getElementById("menu-container");
+            const emptyState = document.getElementById("empty-state");
+            const countLabel = document.getElementById("menu-count-label");
+            const resetBtn = document.getElementById("reset-filters-btn");
+
+            let totalVisibleItems = 0;
+            let html = "";
+
+            const hasActiveFilter = state.searchQuery !== "" || state.dietFilter !== "all" || state.activeCategory !== "All";
+            resetBtn.classList.toggle("hidden", !hasActiveFilter);
+
+            MENU_DATA.forEach(group => {
+                if (state.activeCategory !== "All" && state.activeCategory !== group.category) {
+                    return;
+                }
+
+                const filteredItems = group.items.filter(item => {
+                    if (state.dietFilter === "veg" && !item.veg) return false;
+                    if (state.dietFilter === "nonveg" && item.veg) return false;
+                    if (state.searchQuery && !item.name.toLowerCase().includes(state.searchQuery) && !group.category.toLowerCase().includes(state.searchQuery)) {
+                        return false;
+                    }
+                    return true;
+                });
+
+                if (filteredItems.length === 0) return;
+                totalVisibleItems += filteredItems.length;
+
+                html += `
+                    <section class="space-y-4">
+                        <!-- Category Ribbon Header (Matching Physical Menu Card Style) -->
+                        <div class="flex items-center justify-between gap-4">
+                            <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-r-full rounded-l-lg gold-gradient-bg text-maroon-950 shadow-md">
+                                <h4 class="font-serif text-base sm:text-lg font-extrabold tracking-wide uppercase">${group.category}</h4>
+                                <span class="text-xs font-bold bg-maroon-950/15 px-2 py-0.5 rounded-full">${filteredItems.length}</span>
+                            </div>
+                            <div class="h-[1px] flex-1 bg-gradient-to-r from-gold-500/40 to-transparent"></div>
+                        </div>
+
+                        <!-- Dish Cards Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                            ${filteredItems.map(item => renderDishCard(item, group.category)).join("")}
+                        </div>
+                    </section>
+                `;
+            });
+
+            if (totalVisibleItems === 0) {
+                container.innerHTML = "";
+                emptyState.classList.remove("hidden");
+                countLabel.textContent = "0 dishes found";
+            } else {
+                emptyState.classList.add("hidden");
+                container.innerHTML = html;
+                countLabel.textContent = `Showing ${totalVisibleItems} royal ${totalVisibleItems === 1 ? 'dish' : 'dishes'}`;
+            }
+
+            lucide.createIcons();
+        }
+
+        function renderDishCard(item, category) {
+            const hasVariants = Array.isArray(item.variants) && item.variants.length > 0;
+            const selectedVarIdx = state.selectedVariants[item.id] || 0;
+            const activeVariant = hasVariants ? item.variants[selectedVarIdx] : null;
+            const currentPrice = hasVariants ? activeVariant.price : item.price;
+            const cartKey = hasVariants ? `${item.id}__${activeVariant.label}` : item.id;
+            const dishImg = getDishImageUrl(item, category);
+
+            const cartEntry = state.cart.find(c => c.key === cartKey);
+            const qty = cartEntry ? cartEntry.qty : 0;
+
+            // FSSAI Veg / Non-Veg Symbol
+            const dietBadge = item.veg
+                ? `<span title="Pure Veg" class="w-5 h-5 border border-emerald-600 rounded flex items-center justify-center bg-white/95 shadow-sm flex-shrink-0">
+                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+                   </span>`
+                : `<span title="Non-Veg" class="w-5 h-5 border border-red-600 rounded flex items-center justify-center bg-white/95 shadow-sm flex-shrink-0">
+                     <span class="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-b-[8px] border-b-red-600"></span>
+                   </span>`;
+
+            const featuredTag = item.featured
+                ? `<span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full gold-gradient-bg text-maroon-950 shadow-md">Chef's Special</span>`
+                : "";
+
+            // Variant Selector Pills
+            const variantsHtml = hasVariants
+                ? `<div class="flex flex-wrap gap-1.5 mt-2.5">
+                    ${item.variants.map((v, idx) => `
+                        <button 
+                            onclick="selectVariant('${item.id}', ${idx})"
+                            class="px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all ${
+                                idx === selectedVarIdx 
+                                ? 'bg-gold-500 text-maroon-950 font-bold shadow-sm' 
+                                : 'bg-maroon-950/80 text-amber-200/80 border border-gold-500/25 hover:border-gold-400'
+                            }">
+                            ${v.label} • ₹${v.price}
+                        </button>
+                    `).join("")}
+                   </div>`
+                : "";
+
+            // Add / Quantity Stepper Control
+            const actionControl = qty === 0
+                ? `<button onclick="addToCart('${item.id}')" class="px-4 py-2 rounded-xl bg-maroon-800 hover:bg-gold-500 text-gold-300 hover:text-maroon-950 border border-gold-500/40 font-bold text-xs transition-all flex items-center gap-1.5 shadow-sm">
+                     <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                     <span>ADD</span>
+                   </button>`
+                : `<div class="flex items-center gap-2 bg-gold-500 text-maroon-950 rounded-xl px-2 py-1 font-extrabold text-xs shadow-md">
+                     <button onclick="updateQty('${cartKey}', -1)" class="p-1 hover:bg-maroon-950/15 rounded-lg">
+                         <i data-lucide="minus" class="w-3.5 h-3.5"></i>
+                     </button>
+                     <span class="min-w-[18px] text-center">${qty}</span>
+                     <button onclick="updateQty('${cartKey}', 1)" class="p-1 hover:bg-maroon-950/15 rounded-lg">
+                         <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                     </button>
+                   </div>`;
+
+            return `
+                <div class="royal-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+                    <div>
+                        <!-- High-Res Food Photo with Built-in JS onerror SVG Fallback -->
+                        <div class="relative h-40 sm:h-44 w-full overflow-hidden bg-maroon-950">
+                            <img 
+                                src="${dishImg}" 
+                                alt="${item.name}" 
+                                loading="lazy"
+                                onerror="handleImgError(this, '${item.name.replace(/'/g, "")}')"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-maroon-950/90 via-transparent to-black/25"></div>
+                            <div class="absolute top-3 left-3 flex items-center gap-2">
+                                ${dietBadge}
+                                ${featuredTag}
+                            </div>
+                            <span class="absolute bottom-2.5 right-3 text-[10px] font-medium uppercase tracking-wider text-gold-200/90 bg-maroon-950/80 backdrop-blur-sm px-2 py-0.5 rounded-md border border-gold-500/25">
+                                ${category}
+                            </span>
+                        </div>
+
+                        <!-- Dish Title & Variant Selector -->
+                        <div class="p-4 pb-0">
+                            <h5 class="font-semibold text-sm sm:text-base text-amber-50 leading-snug">${item.name}</h5>
+                            ${variantsHtml}
+                        </div>
+                    </div>
+
+                    <!-- Price & Add to Cart Footer -->
+                    <div class="flex items-center justify-between p-4 pt-3 mt-3 border-t border-gold-500/15">
+                        <div>
+                            <span class="text-[11px] text-amber-200/60 block">Price</span>
+                            <span class="font-serif text-lg font-bold text-gold-400">₹${currentPrice}</span>
+                        </div>
+                        ${actionControl}
+                    </div>
+                </div>
+            `;
+        }
+
+        // 8. CART MANAGEMENT FUNCTIONS
+        function findItemById(itemId) {
+            for (const group of MENU_DATA) {
+                const found = group.items.find(i => i.id === itemId);
+                if (found) return found;
+            }
+            return null;
+        }
+
+        function addToCart(itemId) {
+            const item = findItemById(itemId);
+            if (!item) return;
+
+            const hasVariants = Array.isArray(item.variants) && item.variants.length > 0;
+            const selectedVarIdx = state.selectedVariants[item.id] || 0;
+            const activeVariant = hasVariants ? item.variants[selectedVarIdx] : null;
+            const price = hasVariants ? activeVariant.price : item.price;
+            const variantLabel = hasVariants ? activeVariant.label : null;
+            const key = hasVariants ? `${item.id}__${variantLabel}` : item.id;
+
+            const existing = state.cart.find(c => c.key === key);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                state.cart.push({
+                    key,
+                    id: item.id,
+                    name: item.name,
+                    variantLabel,
+                    price,
+                    veg: item.veg,
+                    qty: 1
+                });
+            }
+
+            showToast(`Added ${item.name}${variantLabel ? ` (${variantLabel})` : ''} to order`);
+            renderMenu();
+            renderCart();
+        }
+
+        function updateQty(key, delta) {
+            const idx = state.cart.findIndex(c => c.key === key);
+            if (idx === -1) return;
+
+            state.cart[idx].qty += delta;
+            if (state.cart[idx].qty <= 0) {
+                state.cart.splice(idx, 1);
+            }
+            renderMenu();
+            renderCart();
+        }
+
+        function clearCart() {
+            state.cart = [];
+            renderMenu();
+            renderCart();
+            showToast("Order cart cleared");
+        }
+
+        function renderCart() {
+            const totalQty = state.cart.reduce((sum, item) => sum + item.qty, 0);
+            const subtotal = state.cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+            const includeGst = document.getElementById("include-gst")?.checked || false;
+            const gstAmount = includeGst ? Math.round(subtotal * 0.05) : 0;
+            const grandTotal = subtotal + gstAmount;
+
+            // Update Navbar Badge & Mobile Floating Bar
+            document.getElementById("nav-cart-badge").textContent = totalQty;
+            const mobileBar = document.getElementById("mobile-cart-bar");
+            if (totalQty > 0) {
+                mobileBar.classList.remove("hidden");
+                document.getElementById("mobile-bar-count").textContent = `${totalQty} ${totalQty === 1 ? 'Item' : 'Items'}`;
+                document.getElementById("mobile-bar-total").textContent = `₹${grandTotal}`;
+            } else {
+                mobileBar.classList.add("hidden");
+            }
+
+            // Toggle Empty vs Filled Cart Drawer Sections
+            const emptyMsg = document.getElementById("cart-empty-msg");
+            const itemsList = document.getElementById("cart-items-list");
+            const checkoutForm = document.getElementById("cart-checkout-form");
+            const drawerFooter = document.getElementById("cart-drawer-footer");
+
+            if (state.cart.length === 0) {
+                emptyMsg.classList.remove("hidden");
+                itemsList.innerHTML = "";
+                checkoutForm.classList.add("hidden");
+                drawerFooter.classList.add("hidden");
+                return;
+            }
+
+            emptyMsg.classList.add("hidden");
+            checkoutForm.classList.remove("hidden");
+            drawerFooter.classList.remove("hidden");
+
+            itemsList.innerHTML = state.cart.map(item => `
+                <div class="p-3.5 rounded-2xl bg-maroon-900/70 border border-gold-500/20 flex items-center justify-between gap-3">
+                    <div class="flex items-start gap-2.5">
+                        <span class="mt-1 w-3.5 h-3.5 border ${item.veg ? 'border-emerald-500' : 'border-red-600'} rounded-sm flex items-center justify-center bg-white flex-shrink-0">
+                            ${item.veg 
+                                ? '<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>' 
+                                : '<span class="w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-b-[6px] border-b-red-600"></span>'}
+                        </span>
+                        <div>
+                            <p class="text-sm font-semibold text-amber-50 leading-tight">${item.name}</p>
+                            ${item.variantLabel ? `<span class="text-[11px] text-gold-400 font-medium">${item.variantLabel}</span>` : ""}
+                            <p class="text-xs text-amber-200/70 mt-0.5">₹${item.price} × ${item.qty} = <span class="text-gold-300 font-bold">₹${item.price * item.qty}</span></p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-maroon-950 border border-gold-500/30 rounded-xl px-2 py-1 text-gold-400 font-bold text-xs">
+                        <button onclick="updateQty('${item.key}', -1)" class="p-1 hover:text-white"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                        <span class="min-w-[16px] text-center text-amber-50">${item.qty}</span>
+                        <button onclick="updateQty('${item.key}', 1)" class="p-1 hover:text-white"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                    </div>
+                </div>
+            `).join("");
+
+            document.getElementById("bill-subtotal").textContent = `₹${subtotal}`;
+            document.getElementById("bill-gst").textContent = `₹${gstAmount}`;
+            document.getElementById("bill-total").textContent = `₹${grandTotal}`;
+
+            lucide.createIcons();
+        }
+
+        function toggleCart(open) {
+            const drawer = document.getElementById("cart-drawer");
+            const backdrop = document.getElementById("cart-drawer-backdrop");
+            if (open) {
+                backdrop.classList.remove("hidden");
+                drawer.classList.remove("translate-x-full");
+            } else {
+                backdrop.classList.add("hidden");
+                drawer.classList.add("translate-x-full");
+            }
+        }
+
+        function setOrderType(type) {
+            state.orderType = type;
+            document.querySelectorAll(".order-type-btn").forEach(btn => {
+                btn.classList.remove("gold-gradient-bg", "text-maroon-950", "font-bold");
+                btn.classList.add("bg-maroon-900", "text-amber-100", "font-semibold", "border-gold-500/30");
+            });
+            const active = document.getElementById(`type-${type}`);
+            active.classList.add("gold-gradient-bg", "text-maroon-950", "font-bold");
+            active.classList.remove("bg-maroon-900", "text-amber-100", "font-semibold", "border-gold-500/30");
+
+            document.getElementById("address-field-wrap").classList.toggle("hidden", type !== "Delivery");
+            document.getElementById("table-field-wrap").classList.toggle("hidden", type !== "Dine-In");
+        }
+
+        // 9. WHATSAPP ORDER GENERATION & BILL FORMATTING
+        function buildOrderMessage() {
+            const custName = document.getElementById("cust-name").value.trim();
+            const custPhone = document.getElementById("cust-phone").value.trim();
+            const custAddress = document.getElementById("cust-address").value.trim();
+            const custTable = document.getElementById("cust-table").value.trim();
+            const custNotes = document.getElementById("cust-notes").value.trim();
+
+            if (!custName || !custPhone) {
+                showToast("Please enter your Name & Mobile Number");
+                return null;
+            }
+            if (state.orderType === "Delivery" && !custAddress) {
+                showToast("Please enter your Delivery Address");
+                return null;
+            }
+            if (state.orderType === "Dine-In" && !custTable) {
+                showToast("Please enter your Table Number");
+                return null;
+            }
+
+            const subtotal = state.cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+            const includeGst = document.getElementById("include-gst")?.checked || false;
+            const gstAmount = includeGst ? Math.round(subtotal * 0.05) : 0;
+            const grandTotal = subtotal + gstAmount;
+
+            const itemLines = state.cart.map((item, i) => 
+                `${i + 1}. ${item.name}${item.variantLabel ? ` (${item.variantLabel})` : ''} × ${item.qty} = ₹${item.price * item.qty}`
+            ).join("\n");
+
+            let locationLine = "";
+            if (state.orderType === "Delivery") locationLine = `📍 *Address:* ${custAddress}`;
+            else if (state.orderType === "Dine-In") locationLine = `🍽️ *Table No:* ${custTable}`;
+            else locationLine = `🛍️ *Pickup:* Counter Takeaway`;
+
+            return `*👑 NEW ORDER — RED PALACE RESTAURANT*\n` +
+                   `━━━━━━━━━━━━━━━━━━━━\n` +
+                   `*Order Type:* ${state.orderType}\n` +
+                   `*Customer:* ${custName} (${custPhone})\n` +
+                   `${locationLine}\n` +
+                   (custNotes ? `📝 *Instructions:* ${custNotes}\n` : "") +
+                   `━━━━━━━━━━━━━━━━━━━━\n` +
+                   `*ORDERED ITEMS:*\n${itemLines}\n` +
+                   `━━━━━━━━━━━━━━━━━━━━\n` +
+                   `Subtotal: ₹${subtotal}\n` +
+                   (includeGst ? `GST (5%): ₹${gstAmount}\n` : "") +
+                   `*GRAND TOTAL: ₹${grandTotal}*\n` +
+                   `━━━━━━━━━━━━━━━━━━━━\n` +
+                   `_Sent via Red Palace Digital Menu_`;
+        }
+
+        function placeWhatsAppOrder() {
+            const msg = buildOrderMessage();
+            if (!msg) return;
+            const url = `https://wa.me/${state.whatsappNumber}?text=${encodeURIComponent(msg)}`;
+            window.open(url, "_blank");
+        }
+
+        function copyOrderBill() {
+            const msg = buildOrderMessage();
+            if (!msg) return;
+            const temp = document.createElement("textarea");
+            temp.value = msg;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand("copy");
+            document.body.removeChild(temp);
+            showToast("Order bill copied to clipboard!");
+        }
+
+        function quickWhatsAppChat() {
+            const msg = "Hello Red Palace! I would like to inquire about today's menu / table availability.";
+            window.open(`https://wa.me/${state.whatsappNumber}?text=${encodeURIComponent(msg)}`, "_blank");
+        }
+
+        // 10. TABLE & BANQUET RESERVATION HANDLER
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById("book-name").value.trim();
+            const phone = document.getElementById("book-phone").value.trim();
+            const date = document.getElementById("book-date").value;
+            const time = document.getElementById("book-time").value;
+            const guests = document.getElementById("book-guests").value;
+            const occasion = document.getElementById("book-occasion").value;
+            const passCode = `#RP-${Math.floor(1000 + Math.random() * 9000)}`;
+
+            state.lastBookingPass = { passCode, name, phone, date, time, guests, occasion };
+
+            document.getElementById("pass-id").textContent = passCode;
+            document.getElementById("pass-details").innerHTML = `
+                <div><span class="text-gold-400/80 block text-[10px]">GUEST</span><strong>${name}</strong></div>
+                <div><span class="text-gold-400/80 block text-[10px]">PARTY SIZE</span><strong>${guests}</strong></div>
+                <div><span class="text-gold-400/80 block text-[10px]">DATE & TIME</span><strong>${date} • ${time}</strong></div>
+                <div><span class="text-gold-400/80 block text-[10px]">OCCASION</span><strong>${occasion}</strong></div>
+            `;
+
+            document.getElementById("booking-pass-card").classList.remove("hidden");
+            showToast("VIP Booking Pass Generated!");
+            lucide.createIcons();
+        }
+
+        function sendBookingToWhatsApp() {
+            if (!state.lastBookingPass) return;
+            const b = state.lastBookingPass;
+            const text = `*👑 TABLE / BANQUET RESERVATION — RED PALACE*\n` +
+                         `━━━━━━━━━━━━━━━━━━━━\n` +
+                         `*Pass ID:* ${b.passCode}\n` +
+                         `*Guest Name:* ${b.name}\n` +
+                         `*Phone:* ${b.phone}\n` +
+                         `*Date:* ${b.date}\n` +
+                         `*Time Slot:* ${b.time}\n` +
+                         `*Guests:* ${b.guests}\n` +
+                         `*Occasion:* ${b.occasion}\n` +
+                         `━━━━━━━━━━━━━━━━━━━━\n` +
+                         `Please confirm our reservation at Red Palace.`;
+            window.open(`https://wa.me/${state.whatsappNumber}?text=${encodeURIComponent(text)}`, "_blank");
+        }
+
+        // 11. DEMO SETTINGS MODAL & TOAST HELPERS
+        function openSettingsModal() {
+            document.getElementById("settings-modal").classList.remove("hidden");
+        }
+        function closeSettingsModal() {
+            document.getElementById("settings-modal").classList.add("hidden");
+        }
+        function saveDemoSettings() {
+            const wa = document.getElementById("setting-wa-number").value.replace(/\D/g, "");
+            const addr = document.getElementById("setting-address").value.trim();
+            const tagline = document.getElementById("setting-tagline").value.trim();
+            if (wa) state.whatsappNumber = wa;
+            if (addr) {
+                state.restaurantAddress = addr;
+                document.getElementById("display-address").textContent = addr;
+            }
+            if (tagline) {
+                state.bannerTagline = tagline;
+                document.getElementById("display-tagline").textContent = tagline;
+            }
+            try {
+                localStorage.setItem("rp_settings", JSON.stringify({
+                    whatsappNumber: state.whatsappNumber,
+                    restaurantAddress: state.restaurantAddress,
+                    bannerTagline: state.bannerTagline
+                }));
+            } catch (e) {}
+            closeSettingsModal();
+            showToast("Demo settings updated successfully!");
+        }
+
+        let toastTimer;
+        function showToast(message) {
+            const box = document.getElementById("toast-box");
+            document.getElementById("toast-message").textContent = message;
+            box.classList.remove("translate-x-[150%]");
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                box.classList.add("translate-x-[150%]");
+            }, 2600);
+        }
+    </script>
+</body>
+</html>
